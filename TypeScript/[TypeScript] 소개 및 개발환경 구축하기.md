@@ -92,6 +92,7 @@ npm install ts-loader --save-dev
  - ts-loader : webpack으로 TypeScript 파일을 Load해서 Compile 및 Transpile 하기 위한 패키지
  - typings : typings.json에 설정을 통해 TypeScirpt에서 사용하는 module을 설치하고 유지관리하는 단순한 방법을 제공한다. 상세한 사용법은 여기를 클릭 한다.
  - tsify : tsconfig.json 설정을 통해, TypeScript 로 작성된 코드를 컴파일 하기위해 사용하는 패키지 이다. 상세한 사용법은 여기를 클릭 한다.
+
     ~~~
     browserify playground.ts -p [tsify] | uglifyjs -c > dist/bundle.js
     ~~~
