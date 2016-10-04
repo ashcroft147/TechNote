@@ -1,6 +1,7 @@
 ## TypeScript란
  - TypeScript는 컴파일하면 Javascript가 되는(Compile-to-Javascript) 언어이다. 컴파일 시점에 에러 체크를 수행하고 전통적인 객체지향 프로그래밍 패턴을 도입한다.
- - TypeScirpt는 static typing으로 개발한다. 
+ - TypeScirpt는 classs, module, interface, static typing을 제공하고 이러한 기능들을 기반으로 더욱 견고한 Javascript 코드를 만들어 낼 수 있다. 
+ - TypeScript는 ES5 문법의 Super Set 이며, ES6에서 제안된 여러가지 기능들을 동일한 문법으로 제공한다.
 
 ## TypeScript의 장점
  - 자바스크립트 사용시 타입 체크를 위한 코드나 테스트를 작성하지 않아도 된다. 
@@ -48,7 +49,6 @@ npm install ts-loader --save-dev
 ~~~
   - tsconfig.json 파일 작성
     * ts-loader에서 ts파일 compile시 이 option을 로드한다. 
-    * TypeScript 컴파일 에러가 발생하면, webpack으로 컴파일 에러 정보가 전달되지 않는다.
 
   - webpack.config.js 작성
     * tsconfig.json 파일을 webpack에서  사용하기 위한 방법 
@@ -95,5 +95,3 @@ npm install ts-loader --save-dev
     ~~~
     browserify playground.ts -p [tsify] | uglifyjs -c > dist/bundle.js
     ~~~
-
-## To-Be written
