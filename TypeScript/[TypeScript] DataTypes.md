@@ -1,0 +1,5 @@
+~~~
+var flag:boolean = true;
+
+
+~~~
