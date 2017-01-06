@@ -81,6 +81,13 @@ npm install ts-loader --save-dev
         ]
         ~~~
 
+## TypeScript에 d3 연동하기
+ - typings 패키지 설치
+    - npm install typings -g --save-dev
+ - d3 설치
+    - npm install d3 --save
+ - d3 definition 을 정의
+    - typings install d3 --save
 
 ## TypeScript 개발시 사용하는 npm 패키지
  - typescript : TypeScript 컴파일러
@@ -96,3 +103,4 @@ npm install ts-loader --save-dev
     ~~~
     browserify playground.ts -p [tsify] | uglifyjs -c > dist/bundle.js
     ~~~
+
