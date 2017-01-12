@@ -1,4 +1,4 @@
-## Module ?
+## Modules ?
 Typescript에서 모듈이란 최상단에 import 혹은 export 되는 파일들을 의미한다. 
 
 
@@ -12,6 +12,12 @@ Typescript에서 모듈이란 최상단에 import 혹은 export 되는 파일들
 - default export는 서로 다른 form으로 import가 되는데 * 를 사용하지 않는다.
 
 
-<B>참조 링크</B>
+## Namespaces
+Internal Module
 
+### Namespace 사용
+
+
+<B>참조 링크</B>
 - [Modules from Typescript Doc](https://www.typescriptlang.org/docs/handbook/modules.html)
+- [Namespaces from Typescript Doc](https://www.typescriptlang.org/docs/handbook/namespaces.html)
