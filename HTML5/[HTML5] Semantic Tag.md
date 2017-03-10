@@ -8,6 +8,8 @@
 ## article
  - Document내의 다른 컨텐츠와는 독립적인 컨텐츠를 구성할때 쓰인다. 
 
+## section vs article
+
 ## nested section and article 
  - section와 article을 사용하는데 있어서의 neting 규칙은 없다
  - section안에 article, article내의 section or article내의 article, section 내의 section 모두 가능한다. 
