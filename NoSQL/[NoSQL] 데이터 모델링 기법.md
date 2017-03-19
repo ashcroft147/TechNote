@@ -1,4 +1,5 @@
 ## NoSQL 데이터 모델
+    - NoSQL 데이터 모델이란, Put/Get의 단순한 DBMS에 대해서 다양한 형태의 Query를 제공하기 위한 테이블 디자인 기법을 의미한다. 
  1. Key/Value Store
   - Oracle Coherence, Redis
  
@@ -74,17 +75,76 @@
 
  - embeded + referencing
 
-## Normalized, Unnomalized
-    - document내에 sub document가 있을때, sub document를 완전히 따로 분리해서 document를 구성할 수 있고(Normalize), 만약 자주 사용되는 entity 같은 경우에는 
-    document에 entity를 구성해서 sub document를 읽으러 갈 필요 없게 할 수 있다.(Denomalize)
-
-    - normalize
+## Normalization, Denomalization
+- Nomalization
+    - document를 따로 관리하는 것을 의미
+        - 전체 document의 사이즈가 클 경우 특정 entity참조시 성능이 느려질 수 있다.
+        - 여러개의 document에서 entity를 불러와 조인할 경우 쿼리의 복잡도가 증가할 수 있다.
         - 장점: storage space를 아낄 수 있다.
-    - denormalize
-        - 장점: read speed가 올라간다.
+- Denomalization
+    - 쿼리의 성능을 개선하기 위해 동일한 데이터를 여러 document에 복제하는 것을 의미
+    - RDBMS에서 Join을 지원하기 위한 디자인패턴이다. 
+        - 장점: read speed가 올라간다. 그리고 쿼리 로직이 단순해 진다(단일 테이블)
+        - 단점: 데이터 일관성 문제 발생, 스토리지의 사이즈가 증가한다. 
 
-## Homogeneous, Heterogeneous data
+## Aggregation
+ - NoSQL은 Schema less 하기 때문에, Key만 동일하다면 Value는 서로 타입이 다르고 Row에 사용하는 컬럼이 달라도 상관없다. 이러한 특성을 사용해 1:N의 복잡한 테이블을 Entity의 통합을 통해 하나의 테이블로 표현할 수 있다.
+    - Join을 대체
+
+## Application Side Join
+![ns1](../img/NoSQL/ns1.png)
+ - 장점: 스토리지 사이즈 줄일수 있다.
+ - 단점: 필요한 데이터 만큼 I/O 발생
+
+## Severside Join
+ - 서버에서 Map & Reduce 엔진을 통해 Join실행
+![ns1](../img/NoSQL/ns2.png)
+ - 단점: 서버 부하 발생
+
+## Homogeneous, Heterogeneous
+ - Homogeneous 
+    - database: same software, same hardware
+    - data: Red, Green, Purple
+ - Heterogeneous
+    - database: different dbms, different hardware
+    - data: White, 1/2/2015, 424291.23
+
+## keyword search
+
+## Telemetry
+ - one document per reading
+ ~~~
+ {
+     "deviceId": ...,
+     "timestamp": "",
+     "reading": 123
+ }
+ ~~~
+
+ - one document per time period, per device
+  ~~~
+ {
+     "deviceId": ...,
+     "timestamp": "",
+     "readings": 
+     [
+        {"minute": 0, "reading": 123},
+        ...
+     ]
+ }
+ ~~~
+
+deviceId나, timestamp와 같은 metadata 들이 아래코드는 한번만 입력된다. 
+
+## Atomic aggregation
+ - 두 개 이상의 테이블을 업데이트 할때 테이블 데이터의 원자성 확보를 위한 패턴이다. 
+   결국 테이블을 합쳐서 원자성을 확보하는 것을 의미하고 이를 통해 트랜잭션 불일치 문제를 해결할 수 있다. 
+
+## Index Table
+    - NoSQL은 Index 가 없기 때문에, Key 이외의 필드로 검색이 아예 안되거나 Full Scan이 될 수 있다. 이를 해결하기 위해 index를 추가해 index 테이블을 만들어 Key이외의 필드에 대해서 검색성능을 향상 시킬 수 있다.
+
+## Composite Key
 
 ## 참고자료
- - ![조대협의 블로그](http://bcho.tistory.com/665)
- - ![MS Build](https://www.youtube.com/watch?v=-o_VGpJP-Q0)
+ - [조대협의 블로그](http://bcho.tistory.com/665)
+ - [MS Build](https://www.youtube.com/watch?v=-o_VGpJP-Q0)
