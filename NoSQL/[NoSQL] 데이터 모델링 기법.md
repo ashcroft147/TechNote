@@ -91,6 +91,14 @@
  - NoSQL은 Schema less 하기 때문에, Key만 동일하다면 Value는 서로 타입이 다르고 Row에 사용하는 컬럼이 달라도 상관없다. 이러한 특성을 사용해 1:N의 복잡한 테이블을 Entity의 통합을 통해 하나의 테이블로 표현할 수 있다.
     - Join을 대체
 
+## Schemaless 
+ - Row
+ - Column Family: RDBMS에서의 Table과 동일하다. 
+ - Column Qualifier
+ - Value
+ - Secondary Indexing
+ - tuple: record, row 즉 RDBMS에서 데이터를 의미
+
 ## Application Side Join
 ![ns1](../img/NoSQL/ns1.png)
  - 장점: 스토리지 사이즈 줄일수 있다.

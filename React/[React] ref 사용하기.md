@@ -8,7 +8,7 @@
   - third-party DOM 라이브러리를 병합하는 경우
 
 2. 사용시 유의점
- - state, props로 해결할 수 있는 부분은 ref를 사용하지 않는다.
+ - state, props로 해결할 수 있는 부분은 ref를 사용하지 않는것이 좋다.
  
 3. DOM Element에 Ref 사용하기
 ~~~
