@@ -9,6 +9,7 @@
 
 2. 사용시 유의점
  - state, props로 해결할 수 있는 부분은 ref를 사용하지 않는것이 좋다.
+ - why ?
  
 3. DOM Element에 Ref 사용하기
 ~~~
@@ -50,32 +51,49 @@ export default CustomTextInput;
 4. Class Component 에 Ref 사용하기
 - ref는 DOM요소 뿐만 아니라 컴포넌트에 사용해서 컴포넌트의 내장 메소드 및 변수를 사용할 수 있다.
 ~~~
-~~~
-
-5. Functional Components 에 Ref 사용하기
-
-
-
----
- - 사용
- ~~~
- class Hello extends React.Component {
-  render() {
-   return (
-       <div> 
-           <input ref={ref => this.input = ref}>
-            </input>
-          </div>
-        )
-  }
-  
+class AutoFocusTextInput extends React.Component {
   componentDidMount() {
-   this.input.value = "I used ref to do this";
+
+  }
+
+  render() {
+    return (
+      <CustomTextInput
+        ref={(input) => {this.textInput = input;} />
+    )
   }
 }
 
-ReactDOM.render(
-  <Hello/>,
-  document.getElementById('app')
-);
- ~~~
+class CustomTextInput extends React.Component {
+  // ...
+}
+~~~
+
+5. Functional Components 에 Ref 사용
+Functional Component 내에서 DOM 혹은 Class Component를 접근하는 것은 가능하지만, 
+~~~
+function CustomTextInput(props) {
+  // textInput must be declared here so the ref callback can refer to it
+  let textInput = null;
+
+  function handleClick() {
+    textInput.focus();
+  }
+
+  return (
+    <div>
+      <input
+        type="text"
+        ref={(input) => { textInput = input; }} />
+      <input
+        type="button"
+        value="Focus the text input"
+        onClick={handleClick}
+      />
+    </div>
+  );  
+}
+~~~
+Functional Component에 직접 reference를 하는 것은 불가능 하다.
+functional Component는 instance가 없기 때문이다.(?)
+---
