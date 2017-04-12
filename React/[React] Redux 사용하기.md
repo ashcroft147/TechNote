@@ -23,5 +23,13 @@ npm install --save redux react-redux
 
 ## 참고자료
  - [Using with React Redux](http://redux.js.org/docs/basics/UsageWithReact.html)
+<<<<<<< HEAD
  - [리덕스 패턴(Redux pattern)](https://www.zerocho.com/category/React/post/57b60e7fcfbef617003bf456)
  - [redux-thunk](https://www.npmjs.com/package/redux-thunk)
+||||||| merged common ancestors
+ - [리덕스 패턴(Redux pattern)](https://www.zerocho.com/category/React/post/57b60e7fcfbef617003bf456)
+=======
+ - [리덕스 패턴(Redux pattern)](https://www.zerocho.com/category/React/post/57b60e7fcfbef617003bf456)
+ - [Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html)
+ - [Time travel debugging](http://bestalign.github.io/2015/10/27/redux-hot-reloading-and-time-travel-debugging/)
+>>>>>>> 04064eed3f6d7b8e924c8cedffc557fc588ee956
