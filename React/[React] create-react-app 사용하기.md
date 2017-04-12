@@ -15,6 +15,14 @@ $ npm install -g create-react-app
  $ cd my-app
  ~~~
 
+## 서버 실행
+~~~
+$ npm start
+~~~
+- webpack-dev-server를 시작할 수 있다.
+- hot-reload가 적용되어 있어 코드 수정하면 서버는 자동으로 재실행 된다.
+- ESLint를 통하여 경고 메시지를 콘솔에 출력해준다.
+
 ## 빌드
 ~~~
 $ npm run build
