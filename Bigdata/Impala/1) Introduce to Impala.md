@@ -1,5 +1,8 @@
+## Hadoop Eco-System
+-![Hadoop Eco](../../img/BigData/Hadoop_EcoSystem.png)
+
 ## Apach Hive 란
-HDFS나 HBase 와 같은 대량의 데이터 원본을 HiveQL이라고 불리는 쿼리 언어로, HDFS에 저장된 데이터를 분석하기 위해 사용하는 기술이다.
+HDFS나 HBase 와 같은 대량의 데이터 원본을 HiveQL이라고 불리는 쿼리 언어로, <b>HDFS에 저장된 데이터를 분석</b>하기 위해 사용하는 기술이다.
 
 ## 분석기술의 등장 배경
 Hadoop의 사용자 그룹은 MapReduce 프레임워크를 사용함에 있어서 
@@ -12,7 +15,7 @@ Hadoop의 사용자 그룹은 MapReduce 프레임워크를 사용함에 있어�
  - 2008년도 등장
  - High-Level 언어
  - 내부적으로 MapReduce를 사용
- - 데이터 조회를 위한 인터페이스를 위한 기술이어서 대용량 데이터 분석에 속도를 높이진 않는다.
+ - <b>데이터 조회를 위한 인터페이스를 위한 기술이어서 대용량 데이터 분석에 속도를 높이진 않는다.</b>
 
 차이점
  - Pig
@@ -33,8 +36,10 @@ Google에서 발표한 GFS(Google File System) 논문을 바탕으로 구현되�
 
 ## Cloudera Impala
 Impala도 Google의 영향을 받았으며, 이는 2010년도 Google의 Dremel 논문을 바탕으로 제작 되었다. 
-Impala는 Apache라이선스를 가진 오픈소스이며, HDFS에서 동작하는 '즉각적인 실시간 SQL 질의 시스템(interactive/real-time SQL queries system)' 이다.
-Impala는 인터페이스로 [Hive-SQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 을 채택한다.
+Impala는 Apache라이선스를 가진 오픈소스이며, HDFS에서 동작하는 '즉각적인 실시간 SQL 질의 시스템(interactive/real-time SQL queries system)' 이다. 
+또한 HBase와도 연동이 가능하다.
+단, Impala는 Cloudera의 Hadoop을 써야하는 제약이 있다. 
+Impala는 인터페이스로 [Hive-QL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 을 채택한다.
 
 ### Hive-SQL의 사용
 Impala는 모든 Hive-SQL을 지원하지 않는다. 즉 Hive에서 사용가능한 문법이 Impala보다 많다.
@@ -55,7 +60,7 @@ Impala는 모든 Hive-SQL을 지원하지 않는다. 즉 Hive에서 사용가능
 
 ## Impala 아키텍처
 Impala는 크게 impalad와 impala state store라는 프로세스로 구성되어 있다.
- - impalad: 각 데이터노드 위에서 질의에 대한 plan 및 질의 처리작업 실행
+ - impalad: 분산 질의 엔진 역할을 담당하는 프로세스, 각 데이터노드 위에서 질의에 대한 plan 및 질의 처리작업 실행
  - impala state store: 각 데이터 노드에서 수행되는 impalad에 대한 메타데이터 유지
 ![Impala high-level architecture](../../img/BigData/Impala_HighLevel_Architecture.png)
 
