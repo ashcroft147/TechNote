@@ -5,9 +5,9 @@
         - single render method만 가진다.
         - local state를 가질수 없다.
     ~~~
-    const Button = ({params}) => ({
+    const Button = ({params}) => {
         ...
-    });
+    };
     ~~~
     - class with React.createClass
     ~~~
