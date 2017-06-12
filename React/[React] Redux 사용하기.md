@@ -42,6 +42,11 @@
  - store에 저장된 상태 트리를 변경하는 일은 action 객체를 통해 일어난다. 여기서 Reducer는 Action이 store의 상태를 어떻게 바꾸는지를 구체적으로 정의한 객체이다.
  - App이 커질수록 Store의 state가 늘어나고, store내의 state를 각각 관리하는 Reducer를 여러개로 쪼개서 제작하는것이 좋다.
 
+## Provider
+wraps the redux store
+각자 다른 Reducer에 의해서 만들어진 Global 어플리케이션 state를 지니고 있는 객체이다.
+Provider는 redux store에게 state의 변화가 있는 경우, 그 변화를 감지하여 child component에게 state 변화를 broadcast 하여 child component들이 rereder 될 수 있도록 한다..
+
 ## Redux Data Flow
 Redux 아키텍처는 엄격하게 단방향의 데이터 흐름을 갖습니다. 
 
