@@ -45,7 +45,10 @@
 ## Provider
 wraps the redux store
 각자 다른 Reducer에 의해서 만들어진 Global 어플리케이션 state를 지니고 있는 객체이다.
-Provider는 redux store에게 state의 변화가 있는 경우, 그 변화를 감지하여 child component에게 state 변화를 broadcast 하여 child component들이 rereder 될 수 있도록 한다..
+Provider는 redux store에게 state의 변화가 있는 경우, 그 변화를 감지하여 child component에게 state 변화를 broadcast 하여 child component들이 rereder 될 수 있도록 한다. .
+
+## redux cycle
+![redux cycle](../img/ReactJS/redux_cycle.png)
 
 ## Redux Data Flow
 Redux 아키텍처는 엄격하게 단방향의 데이터 흐름을 갖습니다. 
