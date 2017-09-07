@@ -89,6 +89,45 @@ Redux 아키텍처는 엄격하게 단방향의 데이터 흐름을 갖습니다
  ~~~
 
 ## React App 연결
+React는 꼭 React에서만 쓰이는 container가 아니다. Redux는 React, Angular, jQuery등에서도 사용할 수가 있다.
+하지만 Redux는 액션에 반응해서 상태를 변경시키기 때문에, React에 잘 어울린다. 
+
+### Smart(Container) Comonent and Dumb(Presentational) Component
+|   | SMART | DUMB |
+ ------------ | :-----------: | -----------: |
+위치       |         Route Component        | 말단 컴포넌트|
+Redux연관       |   Yes    |         No |
+데이터를 읽기위해   |     Redux구독      |        props에서 데이터 읽음 |
+데이터를 바꾸기 위해 | Redux Action을 보냄 |  props에서 콜백 호출      
+
+### Redux와 연결하기
+ 1. react-redux에서 Provider를 읽어와서 <Provider>로 root Component를 감싸주어야 한다.
+  - 이렇게 하면 App 내의 모든 컴포넌트에서 store 인스턴스를 사용할 수 있게 된다. 
+ ~~~
+ index.js
+
+import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import App from './containers/App';
+import todoApp from './reducers';
+
+let store = createStore(todoApp);
+
+let rootElement = document.getElementById('root');
+React.render(
+  // React 0.13의 이슈를 회피하기 위해 
+  // 반드시 함수로 감싸줍니다.
+  <Provider store={store}>
+    {() => <App />}
+  </Provider>,
+  rootElement
+);
+ ~~~
+
+  2. Redux와 연결하고 싶은 컴포넌트를 react-redux의 connect() 함수로 감싸준다. -> Router Component나 최상위 컴포넌트만 연결 -> 너무 깊은 연결시 데이터 흐름의 추적이 어려움 
+   - mapStateToProps(state, ownProps): store의 state를 컴포넌트의 props속성에 매피
+   - mapDispatchToProps(dispatch, ownProps): 컴포넌트의 특정 함수형 props를 실행했을때, 개발자가 지정한 action을 dispatch 하도록 설정ㅑㅑㅑㅑㅑㅓㅓ,
 
 
 ## 설치하기
@@ -107,3 +146,4 @@ npm install --save redux react-redux
  - [Redux 문서](https://deminoth.github.io/redux/)
  - [제작자로부터 Redux 배우기](https://egghead.io/courses/getting-started-with-redux)
  - [React Ecosystem and Middleware](https://deminoth.github.io/redux/introduction/Ecosystem.html)
+ - [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
