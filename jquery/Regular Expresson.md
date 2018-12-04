@@ -1,0 +1,1 @@
+[jQuery RegEx](https://www.sitepoint.com/jquery-basic-regex-selector-examples/)
